@@ -11,9 +11,18 @@ end
 
 -- credit http://richard.warburton.it
 ESX.Math.GroupDigits = function(value)
+	local remain = value - math.floor(value);
+	value = value - remain;
+
 	local left,num,right = string.match(value,'^([^%d]*%d)(%d*)(.-)$')
 
-	return left..(num:reverse():gsub('(%d%d%d)','%1' .. _U('locale_digit_grouping_symbol')):reverse())..right
+	local result = left..(num:reverse():gsub('(%d%d%d)','%1' .. _U('locale_digit_grouping_symbol')):reverse())..right
+
+	if _U('locale_decimal_symbol') then
+		result = result.._U('locale_decimal_symbol')..math.floor(remain * 100)
+	end
+
+	return result
 end
 
 ESX.Math.Trim = function(value)

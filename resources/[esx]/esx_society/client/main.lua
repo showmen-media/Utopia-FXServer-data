@@ -65,7 +65,7 @@ end
 function UpdateSocietyMoneyHUDElement(money)
 	if ESX.GetConfig().EnableHud then
 		ESX.UI.HUD.UpdateElement('society_money', {
-			money = ESX.Math.GroupDigits(money)
+			money = ESX.Math.GroupDigits(money / 100)
 		})
 	end
 
