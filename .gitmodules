@@ -1,3 +1,6 @@
 [submodule "resources/[utopia_exclusives]/utopia-gov-services"]
 	path = resources/[utopia_exclusives]/utopia-gov-services
 	url = git@bitbucket.org:pjsykes/utopia-gov-services.git
+[submodule "resources/[utopia_exclusives]/utopia-flp-loadscreen"]
+	path = resources/[utopia_exclusives]/utopia-flp-loadscreen
+	url = git@bitbucket.org:pjsykes/utopia-flp-loadscreen.git
