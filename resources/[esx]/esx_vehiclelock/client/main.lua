@@ -76,18 +76,8 @@ function ToggleVehicleLock()
 	end, ESX.Math.Trim(GetVehicleNumberPlateText(vehicle)))
 end
 
-Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(0)
+RegisterCommand('ToggleVehicleLock', function()
+	ToggleVehicleLock()
+end, false)
 
-		if IsControlJustReleased(0, 303) and IsInputDisabled(0) then
-			ToggleVehicleLock()
-			Citizen.Wait(300)
-	
-		-- D-pad down on controllers works, too!
-		elseif IsControlJustReleased(0, 173) and not IsInputDisabled(0) then
-			ToggleVehicleLock()
-			Citizen.Wait(300)
-		end
-	end
-end)
+RegisterKeyMapping('ToggleVehicleLock', "Toggle vehicle lock", 'keyboard', 'U')

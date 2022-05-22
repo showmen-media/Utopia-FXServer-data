@@ -364,7 +364,7 @@ Citizen.CreateThread(function()
 		if CurrentAction then
 			ESX.ShowHelpNotification(CurrentActionMsg)
 
-			if IsControlJustReleased(0, 51) then
+			if IsControlJustReleased(0, 38) then
 
 				if CurrentAction == 'AmbulanceActions' then
 					OpenAmbulanceActionsMenu()
@@ -382,15 +382,19 @@ Citizen.CreateThread(function()
 
 			end
 
-		elseif ESX.PlayerData.job ~= nil and ESX.PlayerData.job.name == 'ambulance' and not isDead then
-			if IsControlJustReleased(0, 167) then
-				OpenMobileAmbulanceActionsMenu()
-			end
 		else
 			Citizen.Wait(500)
 		end
 	end
 end)
+
+RegisterCommand('OpenMobileAmbulanceActionsMenu', function()
+	if not CurrentAction and ESX.PlayerData.job ~= nil and ESX.PlayerData.job.name == 'ambulance' and not IsDead then
+		OpenMobileAmbulanceActionsMenu()
+	end
+end, false)
+
+RegisterKeyMapping('OpenMobileAmbulanceActionsMenu', "Open mobile ambulance actions menu", 'keyboard', 'F6')
 
 RegisterNetEvent('disc-ambulancejob:putInVehicle')
 AddEventHandler('disc-ambulancejob:putInVehicle', function()

@@ -167,17 +167,14 @@ end
 local count = 0
 
 -- Key controls
-Citizen.CreateThread(
-  function()
-    while true do
-      Wait(0)
-      if IsControlJustReleased(0, Config.OpenKey) and (GetGameTimer() - GUI.Time) > 1000 then
-        openmenuvehicle()
-        GUI.Time = GetGameTimer()
-      end
-    end
+RegisterCommand('openmenuvehicle', function()
+  if (GetGameTimer() - GUI.Time) > 1000 then
+    openmenuvehicle()
+    GUI.Time = GetGameTimer()
   end
-)
+end, false)
+
+RegisterKeyMapping('openmenuvehicle', "Open vehicle menu", 'keyboard', 'F3')
 
 Citizen.CreateThread(
   function()

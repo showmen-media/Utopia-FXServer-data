@@ -1431,16 +1431,6 @@ Citizen.CreateThread(function()
 			end
 		end -- CurrentAction end
 
-		if IsControlJustReleased(0, 167) and not isDead and ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'police_actions') then
-			if not Config.EnableESXService then
-				OpenPoliceActionsMenu()
-			elseif playerInService then
-				OpenPoliceActionsMenu()
-			else
-				ESX.ShowNotification(_U('service_not'))
-			end
-		end
-
 		if IsControlJustReleased(0, 38) and currentTask.busy then
 			ESX.ShowNotification(_U('impound_canceled'))
 			ESX.ClearTimeout(currentTask.task)
@@ -1450,6 +1440,20 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
+RegisterCommand('OpenPoliceActionsMenu', function()
+	if not isDead and ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'police_actions') then
+		if not Config.EnableESXService then
+			OpenPoliceActionsMenu()
+		elseif playerInService then
+			OpenPoliceActionsMenu()
+		else
+			ESX.ShowNotification(_U('service_not'))
+		end
+	end
+end, false)
+
+RegisterKeyMapping('OpenPoliceActionsMenu', "Open police actions menu", 'keyboard', 'F6')
 
 -- Create blip for colleagues
 function createBlip(id)
