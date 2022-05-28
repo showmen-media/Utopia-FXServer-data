@@ -368,7 +368,7 @@ ESX.Game.DeleteObject = function(object)
 	DeleteObject(object)
 end
 
-ESX.Game.SpawnVehicle = function(modelName, coords, heading, cb)
+ESX.Game.TempSpawnVehicle = function(modelName, coords, heading, cb)
 	local model = (type(modelName) == 'number' and modelName or GetHashKey(modelName))
 
 	Citizen.CreateThread(function()
@@ -391,6 +391,18 @@ ESX.Game.SpawnVehicle = function(modelName, coords, heading, cb)
 			Citizen.Wait(0)
 			timeout = timeout + 1
 		end
+
+		TriggerEvent('persistent-vehicles/register-vehicle', vehicle)
+
+		if cb then
+			cb(vehicle)
+		end
+	end)
+end
+
+ESX.Game.SpawnVehicle = function(modelName, coords, heading, cb)
+	ESX.Game.TempSpawnVehicle(modelName, coords, heading, function(vehicle)
+		TriggerEvent('persistent-vehicles/register-vehicle', vehicle)
 
 		if cb then
 			cb(vehicle)

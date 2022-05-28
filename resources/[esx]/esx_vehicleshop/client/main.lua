@@ -469,7 +469,7 @@ function OpenPopVehicleMenu()
 			local model = data.current.value
 			DeleteDisplayVehicleInsideShop()
 
-			ESX.Game.SpawnVehicle(model, Config.Zones.ShopInside.Pos, Config.Zones.ShopInside.Heading, function(vehicle)
+			ESX.Game.TempSpawnVehicle(model, Config.Zones.ShopInside.Pos, Config.Zones.ShopInside.Heading, function(vehicle)
 				currentDisplayVehicle = vehicle
 
 				for i=1, #Vehicles, 1 do
