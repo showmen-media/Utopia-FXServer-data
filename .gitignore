@@ -1,3 +1,6 @@
 #*.cfg
 /cache/
 /resources/\[local\]/
+/alpine
+/core
+/run.sh
