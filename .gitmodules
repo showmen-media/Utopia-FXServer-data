@@ -7,3 +7,6 @@
 [submodule "es_extended"]
 	path = es_extended
 	url = git@github.com:showmen-media/FiveM-ESX.git
+[submodule "resources/[misc]/oxmysql"]
+	path = resources/[misc]/oxmysql
+	url = git@github.com:showmen-media/FXServer-oxmysql.git
