@@ -4,3 +4,6 @@
 [submodule "resources/[utopia_exclusives]/utopia-flp-loadscreen"]
 	path = resources/[utopia_exclusives]/utopia-flp-loadscreen
 	url = git@bitbucket.org:pjsykes/utopia-flp-loadscreen.git
+[submodule "es_extended"]
+	path = es_extended
+	url = git@github.com:showmen-media/FiveM-ESX.git
