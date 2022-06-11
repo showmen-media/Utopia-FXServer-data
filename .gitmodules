@@ -1,9 +1,9 @@
 [submodule "resources/[utopia_exclusives]/utopia-gov-services"]
 	path = resources/[utopia_exclusives]/utopia-gov-services
-	url = git@bitbucket.org:pjsykes/utopia-gov-services.git
+	url = git@github.com:showmen-media/Utopia-WebInterface.git
 [submodule "resources/[utopia_exclusives]/utopia-flp-loadscreen"]
 	path = resources/[utopia_exclusives]/utopia-flp-loadscreen
-	url = git@bitbucket.org:pjsykes/utopia-flp-loadscreen.git
+	url = git@github.com:showmen-media/Utopia-FlappyPsychikoLoadscreen.git
 [submodule "es_extended"]
 	path = es_extended
-	url = git@github.com:showmen-media/FiveM-ESX.git
+	url = git@github.com:showmen-media/FXServer-ESX.git
