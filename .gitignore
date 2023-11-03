@@ -1,4 +1,5 @@
 #*.cfg
+/.replxx_history
 /cache/
 /resources/\[local\]/
 /db/
